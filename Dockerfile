@@ -1,11 +1,20 @@
 FROM openjdk:17.0.2
 
-# Copy the project files into the Docker image
-COPY . /usr/src/myapp
+# Install apt
+RUN apt-get update && \
+    apt-get install -y apt-utils && \
+    apt-get install -y --no-install-recommends apt && \
+    rm -rf /var/lib/apt/lists/*
+
+# Now you can use apt-get to install other packages
+RUN apt-get update && \
+    apt-get install -y tomcat9
 
 # Set the working directory
-WORKDIR /usr/src/myapp
-RUN apt-get update && apt-get install -y tomcat9
-EXPOSE 8081
+WORKDIR /usr/local/tomcat
+
+# Expose the port
+EXPOSE 8080
+
 # Specify the command to run Tomcat
-CMD catalina.sh run
+CMD ["catalina.sh", "run"]
