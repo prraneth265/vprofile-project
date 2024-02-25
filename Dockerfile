@@ -1,10 +1,8 @@
-FROM tomcat:9.0
+FROM tomcat:8-jre11
 
-# Set the working directory
-WORKDIR /usr/local/tomcat
+RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Expose the port
+COPY target/vprofile-v2.war /usr/local/tomcat/webapps/ROOT.war
+
 EXPOSE 8081
-
-# Specify the command to run Tomcat
-CMD ["catalina.sh", "run", "--port", "8081"]
+CMD ["catalina.sh", "run"]
