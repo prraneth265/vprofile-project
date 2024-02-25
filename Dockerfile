@@ -5,6 +5,6 @@ COPY . /usr/src/myapp
 
 # Set the working directory
 WORKDIR /usr/src/myapp
-
+EXPOSE 8081
 # Specify the command to run Tomcat
 CMD catalina.sh run
