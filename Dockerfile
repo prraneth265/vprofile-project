@@ -7,4 +7,4 @@ WORKDIR /usr/local/tomcat
 EXPOSE 8081
 
 # Specify the command to run Tomcat
-CMD ["catalina.sh", "run"]
+CMD ["catalina.sh", "run", "-port", "8081"]
