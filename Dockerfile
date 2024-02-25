@@ -4,7 +4,7 @@ FROM tomcat:9.0
 WORKDIR /usr/local/tomcat
 
 # Expose the port
-EXPOSE 8080
+EXPOSE 8081
 
 # Specify the command to run Tomcat
 CMD ["catalina.sh", "run"]
